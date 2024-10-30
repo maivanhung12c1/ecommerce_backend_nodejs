@@ -1,0 +1,9 @@
+@url_dev=http://localhost:3055/v1/api
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: aaa
+
+{
+    "email": "shopninja3@gmail.com",
+    "password": "@mvh9550"
+}
