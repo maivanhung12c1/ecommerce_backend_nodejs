@@ -1,6 +1,6 @@
 'use strict'
 
-const { Types } = require("mongoose")
+const { ObjectId } = require('mongodb');
 const keytokenModel = require("../models/keytoken.model")
 
 class KeyTokenService {
@@ -29,7 +29,7 @@ class KeyTokenService {
     }
 
     static findByUserId = async (userId) => {
-        return await keytokenModel.findOne({ user: userId }).lean()
+        return await keytokenModel.findOne({ user: userId })
     }
 
     static removeKeyById = async (id) => {
@@ -45,7 +45,7 @@ class KeyTokenService {
     }
 
     static deleteKeyById = async (userId) => {
-        return await keytokenModel.deleteOne({user: userId})
+        return await keytokenModel.deleteOne({user: new ObjectId(userId)})
     }
 }
 
